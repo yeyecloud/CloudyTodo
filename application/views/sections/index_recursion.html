@@ -1,0 +1,44 @@
+<h3 class="ui-corner-all">
+	<span class="section-name">{{ section }}</span>
+	<a href="{% url 'default', ['controller':'todos','action':'add','pid':project_id,'sid':section_id] %}" class="fg-button-mini ui-state-default fg-button-mini-icon-left ui-corner-all"><span class="ui-icon ui-icon-plus"></span>Ajouter un todo</a>
+	<a href="{% url 'default', ['controller':'sections','action':'edit','pid':project_id,'sid':section_id] %}" class="fg-button-mini ui-state-default fg-button-mini-icon-left ui-corner-all"><span class="ui-icon ui-icon-pencil"></span>Modifier</a>
+	<a href="{% url 'default', ['controller':'sections','action':'delete','pid':project_id,'sid':section_id] %}" class="fg-button-mini ui-state-default fg-button-mini-icon-left ui-corner-all"><span class="ui-icon ui-icon-trash"></span>Supprimer</a>
+</h3>
+<dl>
+	{% for todo in todos %}
+	<dt class="name priority-{{ todo.priority }} {{ todo.status }} ui-corner-all">
+		<div class="name-percentage ui-corner-all" style="width: {% if todo.status == 'fixed' %}0%{% else %}{{ todo.progress }}%{% endif %}; display: none;">&nbsp;</div>
+		<div class="name-text">
+			{% if todo.status == 'fixed' %}
+			<span class="ui-icon ui-icon-circle-check"></span>
+			{% endif %}
+			{{ todo.name }}
+		</div>
+	</dt>
+		
+		<dd class="description ui-corner-all" style="display: none;">
+			<a href="{% url 'default', ['controller':'todos','action':'edit','pid':project_id,'sid':section_id,'tid':todo.id] %}" class="fg-button-mini ui-state-default fg-button-mini-icon-left ui-corner-all"><span class="ui-icon ui-icon-pencil"></span>Modifier</a>
+			<a href="{% url 'default', ['controller':'todos','action':'delete','pid':project_id,'sid':section_id,'tid':todo.id] %}" class="fg-button-mini ui-state-default fg-button-mini-icon-left ui-corner-all"><span class="ui-icon ui-icon-trash"></span>Supprimer</a>
+			{% if todo.status != 'fixed' %}
+			<a href="{% url 'default', ['controller':'todos','action':'fixed','pid':project_id,'sid':section_id,'tid':todo.id] %}" class="fg-button-mini ui-state-default fg-button-mini-icon-left ui-corner-all"><span class="ui-icon ui-icon-check"></span>Marquer comme réglé</a>
+			{% endif %}
+			<p>{{ todo.description|auto_p }}</p>
+			{% if todo.status != 'fixed' %}
+			<p>Progression :
+				<div class="todo-slider-wrapper">
+					<div class="todo-slider"></div>
+					<span class="todo-slider-indicator">{{ todo.progress }}</span>
+					<span class="{% url 'default', ['controller':'todos','action':'progress','pid':project_id,'sid':section_id,'tid':todo.id] %}">%</span>
+				</div>
+			</p>
+			{% endif %}
+		</dd>
+	{% else %}
+	{% if not others %}
+	<dt>Il n'y a aucun todo dans cette section</dt>
+	{% endif %}
+	{% endfor %}
+	{% if others %}
+	{{ others|safe }}
+	{% endif %}
+</dl>

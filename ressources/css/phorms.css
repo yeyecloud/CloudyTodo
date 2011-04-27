@@ -1,0 +1,94 @@
+/* Forms */
+form {
+	width: 780px;
+}
+
+form .phorm_help {
+	margin: 0;
+	padding: 2px;
+	font-size: 10pt;
+	font-style: oblique;
+	color: #666;
+	display: block;
+}
+
+form p {
+	margin: 2px 0;
+}
+
+/* fieldset , legend */
+form fieldset {
+	margin-bottom: 10px;
+	border: #CCC 1px solid;
+}
+
+form fieldset legend {
+	padding: 0 10px;
+	/* OPTIMISER */
+	border-left: #CCC 1px solid;
+	border-right: #CCC 1px solid;
+	font-size: 1.2em;
+	color: #999;
+}
+
+/* Label */
+form label {
+	display: block;
+	width: 39%;
+	float: left;
+	padding-right: 1%;
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+/* Input */
+form input,form select {
+	margin-left: 1%;
+	border: #CCC 1px solid;
+	font-size: large;
+}
+
+form input[type="text"],form select {
+	width: 58%;
+}
+
+/* Textarea */
+form textarea {
+	margin-left: 1%;
+	width: 58%;
+	border: #CCC 1px solid;
+}
+
+/* button submit */
+form input[type="submit"] {
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+form input[type="submit"]:hover {
+	background-color: #66CC33;
+	cursor: pointer;
+}
+
+form input[type="reset"] {
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+form input[type="reset"]:hover {
+	background-color: #E80000;
+	cursor: pointer;
+}
+
+form .required {
+	border-color: #D6030B;
+}
+
+/* Validation */
+form div.validation-advice {
+	margin: 5px 0;
+	padding: 5px;
+	background-color: #E80000;
+	color: #FFF;
+	font-weight: bold;
+}

@@ -1,0 +1,4 @@
+This is a dummy app build with Kohana.
+It uses ORM, Twig as the templates library and uses Extraball+Phorms, some useful helpers developped by myself on top of existing php libraries or not.
+
+This App is a simple to-do manager.

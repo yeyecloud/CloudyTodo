@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>{{ title }}</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="{{ description }}" />
+{% for stylesheet in stylesheets %}
+{{ stylesheet|safe }}
+{% endfor %}
+</head>
+<body>
+<div id="container">
+	<ul id="breadcrumbs">
+		{% for breadcrumb in breadcrumbs %}
+		{% if breadcrumb_current == breadcrumb.path or breadcrumb_current == breadcrumb_base %}
+		<li>{{ breadcrumb.title }}</li>
+		{% else %}
+		<li><a href="{{ breadcrumb.path }}">{{ breadcrumb.title }}</a></li>
+		{% endif %}
+		{% endfor %}
+	</ul>
+	
+    <div id="contents">
+    {{ contents|safe }}
+    {% if debug_profiler %}
+	<div style="font-size: smaller">
+		{{ debug_profiler|safe }}
+	</div>
+	{% endif %}
+    </div>
+    <div id="footer"><strong>&copy; Reaklab 2010</strong> Created by Taoma</div>
+</div>
+{% for script in scripts %}
+{{ script|safe }}
+{% endfor %}
+</body>
+</html>

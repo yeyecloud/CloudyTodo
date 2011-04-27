@@ -1,0 +1,18 @@
+<p><a href="{% url 'default', ['controller':'projects','action':'add'] %}" class="fg-button ui-state-default fg-button-icon-left ui-corner-all"><span class="ui-icon ui-icon-circle-plus"></span>Ajouter un projet</a></p>
+<ul id="projects-list">
+{% for project in projects %}
+	<li class="ui-corner-all">
+		<a href="{% url 'default', ['controller':'sections', 'pid':project.id] %}" style="name">
+			{% if project.id in fixed %}
+			<span class="ui-icon ui-icon-circle-check"></span>
+			{% endif %}
+			{{ project.name }}
+			{% if project.begindate != 0 %}
+			<span style="font-size: smaller">(du {{ project.begindate|date('d/m/Y') }} au {{ project.duedate|date('d/m/Y') }})</span>
+			{% endif %}
+		</a>
+		<a href="{% url 'default', ['controller':'projects','action':'edit','pid':project.id] %}" class="fg-button-mini ui-state-default fg-button-mini-icon-left ui-corner-all"><span class="ui-icon ui-icon-pencil"></span>Modifier</a>
+	  	<a href="{% url 'default', ['controller':'projects','action':'delete','pid':project.id] %}" class="fg-button-mini ui-state-default fg-button-mini-icon-left ui-corner-all"><span class="ui-icon ui-icon-trash"></span>Supprimer</a>
+	</li>
+{% endfor %}
+</ul>

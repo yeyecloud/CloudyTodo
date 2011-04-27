@@ -1,0 +1,260 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: Myriad Pro, Sans, sans-serif;
+	background-color: #8A8A8A;
+	color: #000;
+}
+
+a:link,a:visited {
+	color: #6A6A6A;
+}
+
+div#container {
+	background-color: #E1E1E1;
+	width: 800px;
+	margin: auto;
+	
+	-moz-box-shadow: 0 0 20px #333;
+	-webkit-box-shadow: 0 0 20px #333;
+	box-shadow: 0 0 20px #333;
+}
+
+div#contents {
+	width: 780px;
+	padding: 10px;
+}
+
+div#footer {
+	width: 780px;
+	padding: 10px;
+	clear: both;
+}
+
+/* Buttons (Jquery UI) */
+.fg-button,.fg-button-mini {
+	outline: 0;
+	margin: -2px 4px 0 0;
+	padding: .4em 1em;
+	text-decoration: none !important;
+	cursor: pointer;
+	position: relative;
+	text-align: center;
+	zoom: 1;
+	display: inline-block;
+	color: #8A8A8A !important;
+}
+
+.fg-button-mini {
+	font-size: small;
+	padding: .2em .4em;
+}
+
+.fg-button-icon-left {
+	padding-left: 2.1em;
+}
+
+.fg-button-mini-icon-left {
+	padding-left: 1.5em;
+}
+
+.fg-button .ui-icon,.fg-button-mini .ui-icon {
+	position: absolute;
+	top: 50%;
+	margin-top: -8px;
+	left: 50%;
+	margin-left: -12px;
+	display: inline-block;
+}
+
+.fg-button-mini .ui-icon {
+	margin-top: -9px;
+	margin-left: -12px;
+}
+
+.fg-button-icon-left .ui-icon,.fg-button-mini-icon-left .ui-icon {
+	right: auto;
+	left: .2em;
+	margin-left: 0;
+}
+
+.fg-button-mini-icon-left .ui-icon {
+	left: .1em;
+}
+
+/* Breadcrumbs */
+#breadcrumbs {
+	background-color: #FFF;
+	list-style-type: none;
+	padding: 0;
+	width: 800px;
+	margin: auto;
+	height: 2em;
+}
+
+#breadcrumbs li {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	float: left;
+	line-height: 2em;
+	color: #777;
+	padding-left: .75em;
+}
+
+#breadcrumbs li a {
+	background: url(../images/crumbs.png) no-repeat right center;
+	display: block;
+	padding: 0 15px 0 0;
+}
+
+#breadcrumbs li a:link,#breadcrumbs li a:visited {
+	color: #777;
+	text-decoration: none;
+}
+
+#breadcrumbs a:link,#breadcrumbs a:visited,#breadcrumbs li a:hover,#breadcrumbs li a:focus
+{
+	color: #dd2c0d;
+}
+
+/* Todos list */
+#todos-list h3 {
+	font-size: medium;
+	margin-left: 10px;
+	margin-bottom: 4px;
+	cursor: pointer;
+}
+
+#todos-list dl {
+	margin: 0;
+	margin-left: 30px;
+}
+
+#todos-list dt,#projects-list li {
+	font-size: medium;
+}
+
+#todos-list .name-text, #todos-list .name-percentage {
+	margin-bottom: 3px;
+	cursor: pointer;
+}
+
+	#todos-list .name-percentage
+	{
+		opacity: 0.4;
+		-moz-opacity: 0.4;
+		-webkit-opacity: 0.4;
+		position: absolute;
+	}
+
+#todos-list .name-text, #todos-list .name-percentage,#projects-list li,#todos-list h3 {
+	padding: 6px;
+}
+
+#todos-list dt:hover,#projects-list li:hover,#todos-list h3:hover {
+	background-color: #F6F4E6;
+}
+
+#todos-list dd {
+	margin-left: 10px;
+	margin-bottom: 5px;
+	padding: 8px;
+	border: 1px solid #8A8A8A;
+	background-color: #B9B9B9;
+}
+
+	#todos-list dd p {
+		margin-top: 10px;
+		padding: 4px;
+		margin-bottom: 0;
+	}
+	
+	#todos-list dd .todo-slider-wrapper {
+		padding: 13px;
+	}
+	
+	#todos-list dd .todo-slider {
+		width: 80%;
+		display: inline-block;
+	}
+	
+	#todos-list dd .todo-slider-indicator {
+		margin-left: 15px;
+		display: inline-block;
+	}
+
+#projects-list {
+	padding-left: 10px;
+}
+
+#projects-list li {
+	list-style-type: none;
+	clear: both;
+}
+
+#projects-list li a {
+	display: inline-block;
+	text-decoration: none;
+}
+
+#projects-list li a.name {
+	display: inline-block;
+}
+
+#todos-list h3 a,#projects-list li a.fg-button-mini {
+	float: right;
+}
+
+/* Null priority */
+#todos-list .priority-0 {
+	background-color: #CCC;
+}
+
+#todos-list .priority-0 .name-percentage {
+	background-color: #9E9E9E;
+}
+
+/* Low priority */
+#todos-list .priority-1 {
+	background-color: #77DD77;
+}
+
+#todos-list .priority-1 .name-percentage {
+	background-color: #2DA12D;
+}
+
+#todos-list .priority-2 {
+	background-color: #FF7F00;
+}
+
+#todos-list .priority-2 .name-percentage {
+	background-color: #CC7016;
+}
+
+#todos-list .priority-3 {
+	background-color: #FF4040;
+}
+
+#todos-list .priority-3 .name-percentage {
+	background-color: #BD0000;
+}
+
+#todos-list .fixed {
+	background-color: #CCC;
+	color: grey;
+	font-size: x-small;
+}
+
+#todos-list .priority-4 {
+	background-color: red;
+}
+
+#todos-list .priority-4 .name-percentage {
+	background-color: #B80000;
+}
+
+dt .ui-icon, li .ui-icon {
+	vertical-align: bottom;
+	display: inline-block;
+}

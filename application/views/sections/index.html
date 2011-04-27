@@ -1,0 +1,8 @@
+<p><a href="{% url 'default', ['controller':'sections','action':'add','pid':project_id] %}" class="fg-button ui-state-default fg-button-icon-left ui-corner-all"><span class="ui-icon ui-icon-circle-plus"></span>Ajouter une section</a></p>
+<div id="todos-list">
+{% if sections %}
+{{ sections|safe }}
+{% else %}
+	<p>Il n'y a aucune section, créez-en une !</p>
+{% endif %}
+</div>
